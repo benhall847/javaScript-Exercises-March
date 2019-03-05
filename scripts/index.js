@@ -102,6 +102,7 @@ function factorFinder(aNum){
 // console.log(factorFinder(100))
 
 function caeserCipher(phrase, offset){
+    phrase = phrase.toLowerCase()
     const cipher = "abcdefghijklmnopqrstuvwyxz ";
     let result = '';
     let index = 0;
@@ -115,7 +116,8 @@ function caeserCipher(phrase, offset){
     }
     return result;
 }
-// console.log(caeserCipher("hellooo vacuum kitties", 2))
+console.log(caeserCipher("hellooo vacuum kiTTies", 2))
+
 
 function caeserDecipher(phrase, offset){
     const cipher = "abcdefghijklmnopqrstuvwyxz ";
@@ -223,3 +225,25 @@ function rockPaperScissors(player1,player2) {
 }
 
 // console.log(rockPaperScissors('rock','paper'))
+
+function ticTacToe(myList){
+    for (let i = 0; i < myList.length; i++) {
+        if (myList[i][0] === myList[i][1] && myList[i][1] === myList[i][2]){
+            return myList[i][0]
+        } else if (myList[0][i] === myList[1][i] && myList[1][i] === myList[2][i]){
+            return myList[0][i]
+        } else if (myList[0][0] === myList[1][1] && myList[1][1] === myList[2][2]){
+            return myList[0][0]
+        } else if (myList[0][2] === myList[1][1] && myList[1][1] === myList[2][0]){
+            return myList[0][2]
+        } else{
+            return null
+        }
+    }
+}
+// console.log(ticTacToe([
+//     ['O', 'O', 'O'],
+//     ['X', null, 'X'],
+//     [null, 'X', null]
+// ]))
+
