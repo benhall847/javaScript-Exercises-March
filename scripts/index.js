@@ -1,4 +1,4 @@
-logger.init()
+logger.init();
 
 // function hello(name='world') {
 //     return `Hello, ${name}!`
@@ -52,29 +52,29 @@ function splitAmount(bill, service, split){
 
 function printNumbers(a, b){
     for (let i = a; i <= b; i++) {
-        console.log(i)
+        console.log(i);
     }
 }
 // printNumbers(1,10)
 
 function printSquare(aNum){
     for (let i = 0; i < aNum; i++){
-        let square = '*'
-        console.log(square.repeat(aNum))
+        let square = '*';
+        console.log(square.repeat(aNum));
     }
 }
 // printSquare(10)
 
 function printBox(w,h){
-    star = "*"
-    space = " "
+    const star = "*";
+    const space = " ";
     for (let i = 1; i <= h; i++) {
         if (i === 1){
-            console.log(star.repeat(w))
+            console.log(star.repeat(w));
         } else if (i > 1 && i != h){
-            console.log(star + space.repeat(w - 2) + star)
+            console.log(star + space.repeat(w - 2) + star);
         } else{
-            console.log(star.repeat(w))
+            console.log(star.repeat(w));
         }
     }
 }
@@ -82,21 +82,21 @@ function printBox(w,h){
 
 
 function printBanner(text) {
-    star = "*"
-    console.log(star.repeat(text.length + 4))
-    console.log(`* ${text} *`)
-    console.log(star.repeat(text.length + 4))
+    const star = "*";
+    console.log(star.repeat(text.length + 4));
+    console.log(`* ${text} *`);
+    console.log(star.repeat(text.length + 4));
 }
 // printBanner("I AM THE ONE TRUE HEIR")
 
 function factorFinder(aNum){
-    results = []
+    let results = [];
     for (let i = 1; i <= aNum; i++){
         if (aNum % i === 0) {
-            results.push(i)
+            results.push(i);
         }
     }
-    return results
+    return results;
 }
 
 // console.log(factorFinder(100))
@@ -106,14 +106,14 @@ function caeserCipher(phrase, offset){
     let result = '';
     let index = 0;
     for (let i = 0; i < phrase.length; i++){
-        index = cipher.indexOf(phrase[i])
-        index += offset
+        index = cipher.indexOf(phrase[i]);
+        index += offset;
         if (index > cipher.length){
-            index += -cipher.length
+            index += -cipher.length;
         }
-        result += cipher[index]
+        result += cipher[index];
     }
-    return result
+    return result;
 }
 // console.log(caeserCipher("hellooo vacuum kitties", 2))
 
@@ -122,34 +122,104 @@ function caeserDecipher(phrase, offset){
     let result = '';
     let index = 0;
     for (let i = 0; i < phrase.length; i++){
-        index = cipher.indexOf(phrase[i])
-        index -= offset
+        index = cipher.indexOf(phrase[i]);
+        index -= offset;
         if (index < 0){
-            index += cipher.length
+            index += cipher.length;
         }
-        result += cipher[index]
+        result += cipher[index];
     }
-    return result
+    return result;
 }
 
 // console.log(caeserDecipher("jgnnqqqbycewwobmkvvkgu", 2))
 
 function leetSpeak(phrase){
-    letter = ['A','E','G','I','O','S','T'];
-    leet = ['4','3','6','1','0','5','7'];
-    results = '';
+    const letter = ['A','E','G','I','O','S','T'];
+    const leet = ['4','3','6','1','0','5','7'];
+    let results = '';
     const upperPhrase = phrase.toUpperCase();
     for (let i = 0; i < upperPhrase.length; i++){
-        myLetter = upperPhrase[i]
+        myLetter = upperPhrase[i];
             if (letter.includes(myLetter)) {
-                results += leet[letter.indexOf(myLetter)]
+                results += leet[letter.indexOf(myLetter)];
             } else{
-                results += myLetter
+                results += myLetter;
             }
     }
-    return results
+    return results;
 }
 
 
 // console.log(leetSpeak("THIS IS YOUR HEIR SPEAKING!"))
 
+function longVowel(myString){
+    const vowel = ['A','E','I','O','U','a','e','i','o','u'];
+    let results = '';
+    for (let i = 0; i < myString.length; i++) {
+        myLetters = myString[i] + myString[i + 1];
+        myLetter = myString[i];
+        vowel.forEach(function (myVowel){
+            if (myVowel.repeat(2) === myLetters){
+                results += myLetter.repeat(4);
+            }
+        })
+        if (myLetter !== myString[i - 1]) {
+            results += myLetter;
+        }
+    }
+    return results;
+}
+// console.log(longVowel("I loove cheese!"))
+
+function sumNumbers(nums){
+    results = 0;
+    nums.forEach(function (myNumber){
+        results += myNumber;
+    })
+    return results;
+}
+// console.log(sumNumbers([1,2,3,4,5,6,7]))
+
+
+const addNumbers = (a,b) => a + b;
+// console.log([1,2,4,4,5,6].reduce(addNumbers))
+
+
+const isPositive = (num) => num > 0;
+// console.log([1,2,3,-4,-5,23,-4].filter(isPositive));
+
+function rockPaperScissors(player1,player2) {
+    const choice1 = player1.toLowerCase();
+    const choice2 = player2.toLowerCase();
+    if (choice1 === 'rock'){
+        switch(choice2){
+            case 'rock':
+            return 'draw';
+            case 'paper':
+            return 'player2';
+            case 'scissors':
+            return 'player1';
+        } 
+    } else if (choice1 === 'scissors'){
+        switch(choice2){
+            case 'rock':
+            return 'player2';
+            case 'paper':
+            return 'player1';
+            case 'scissors':
+            return 'draw';
+        }
+    } else if (choice1 === 'paper'){
+        switch(choice2){
+            case 'rock':
+            return 'player1';
+            case 'paper':
+            return 'draw';
+            case 'scissors':
+            return 'player2';
+        }
+    }
+}
+
+// console.log(rockPaperScissors('rock','paper'))
