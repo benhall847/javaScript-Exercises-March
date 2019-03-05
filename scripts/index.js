@@ -232,18 +232,35 @@ function ticTacToe(myList){
             return myList[i][0]
         } else if (myList[0][i] === myList[1][i] && myList[1][i] === myList[2][i]){
             return myList[0][i]
-        } else if (myList[0][0] === myList[1][1] && myList[1][1] === myList[2][2]){
-            return myList[0][0]
-        } else if (myList[0][2] === myList[1][1] && myList[1][1] === myList[2][0]){
-            return myList[0][2]
-        } else{
-            return null
-        }
+        }}
+    if (myList[0][0] === myList[1][1] && myList[1][1] === myList[2][2]){
+        return myList[0][0]
+    } else if (myList[0][2] === myList[1][1] && myList[1][1] === myList[2][0]){
+        return myList[0][2]
     }
+    return null
 }
+
 // console.log(ticTacToe([
-//     ['O', 'O', 'O'],
-//     ['X', null, 'X'],
-//     [null, 'X', null]
+//     ['X', 'O', 'O'],
+//     ['O', 'X', 'X'],
+//     [null, 'X', 'X']
 // ]))
 
+function matrixMultiply(a, b){
+    let aNumRows = a.length, aNumCols = a[0].length, bNumRows = b.length, bNumCols = b[0].length;
+    result = new Array(aNumRows)
+        for (let row = 0; row < aNumRows; row++){
+            result[row] = new Array(bNumCols);
+            for (let col = 0; col < bNumCols; col++){
+                result[row][col] = 0;
+                for (let i = 0; i <aNumCols; i++){
+                    result[row][col] += a[row][i] * b[i][col];
+                }
+            }
+        }
+    return result
+}
+
+
+console.log(matrixMultiply([[2, 4], [3, 4]], [[5, 2], [3, 1]]))
